@@ -2,7 +2,7 @@ using System;
 
 namespace TDA.Domain.Entities
 {
-    public abstract class Entity
+    public abstract class Entity : IEquatable<Entity>
     {
         public Entity()
         {
@@ -10,5 +10,10 @@ namespace TDA.Domain.Entities
         }
 
         public Guid Id { get; private set; }
+
+        public bool Equals(Entity other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
