@@ -13,7 +13,7 @@ namespace TDA.Domain.Entities
 
         public bool Equals(Entity other)
         {
-            throw new NotImplementedException();
+            return Id == other.Id;
         }
     }
 }
