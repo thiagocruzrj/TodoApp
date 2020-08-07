@@ -26,5 +26,10 @@ namespace TDA.Domain.Entities
         {
             Done = false;
         }
+
+        public void UpdateTitle(string title)
+        {
+            Title = title;
+        }
     }
 }
