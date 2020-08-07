@@ -1,5 +1,6 @@
 using System;
 using Flunt.Notifications;
+using Flunt.Validations;
 using TDA.Domain.Commands.Contracts;
 
 namespace TDA.Domain.Commands
@@ -20,7 +21,12 @@ namespace TDA.Domain.Commands
 
         public void Validate()
         {
-            throw new NotImplementedException();
+            AddNotifications(
+                new Contract()
+                    .Requires()
+                    .HasMinLen(Title, 3, "Title", "Please, describe the task better!")
+                    .HasMinLen(User, 6, "User", "Invalid User!");
+            );
         }
     }
 }
