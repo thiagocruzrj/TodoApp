@@ -25,7 +25,7 @@ namespace TDA.Domain.Commands
                 new Contract()
                     .Requires()
                     .HasMinLen(Title, 3, "Title", "Please, describe the task better!")
-                    .HasMinLen(User, 6, "User", "Invalid User!");
+                    .HasMinLen(User, 6, "User", "Invalid User!")
             );
         }
     }
