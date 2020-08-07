@@ -17,6 +17,7 @@ namespace TDA.Domain.Commands
         }
         public Guid Id { get; set; }
         public string User { get; set; }
+        
         public void Validate()
         {
             AddNotifications(

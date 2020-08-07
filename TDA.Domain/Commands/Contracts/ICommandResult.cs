@@ -1,4 +1,4 @@
-namespace TDA.Domain.Commands
+namespace TDA.Domain.Commands.Contracts
 {
     public interface ICommandResult { }
 }

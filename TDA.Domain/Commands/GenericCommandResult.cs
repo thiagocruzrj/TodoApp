@@ -1,3 +1,5 @@
+using TDA.Domain.Commands.Contracts;
+
 namespace TDA.Domain.Commands
 {
     public class GenericCommandResult : ICommandResult
