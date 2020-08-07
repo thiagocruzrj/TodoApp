@@ -1,13 +1,29 @@
+using System;
 using Flunt.Notifications;
+using Flunt.Validations;
 using TDA.Domain.Commands.Contracts;
 
 namespace TDA.Domain.Commands
 {
     public class MarkTodoAsDoneCommand : Notifiable, ICommand
     {
+        public MarkTodoAsDoneCommand() {}
+
+        public MarkTodoAsDoneCommand(Guid id, string user)
+        {
+            this.Id = id;
+            this.User = user;
+
+        }
+        public Guid Id { get; set; }
+        public string User { get; set; }
         public void Validate()
         {
-            throw new System.NotImplementedException();
+            AddNotifications(
+                new Contract()
+                    .Requires()
+                    .HasMinLen(User, 6, "User", "Invalid User!")
+            );
         }
     }
 }
