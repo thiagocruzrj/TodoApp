@@ -1,16 +1,20 @@
+using Flunt.Notifications;
 using TDA.Domain.Commands;
 using TDA.Domain.Commands.Contracts;
+using TDA.Domain.Repositories;
 
 namespace TDA.Domain.Handlers.Contracts
 {
-    public class TodoHandler : IHandler<CreateTodoCommand>, IHandler<UpdateTodoCommand>
+    public class TodoHandler : Notifiable, IHandler<CreateTodoCommand>
     {
-        public ICommandResult Handler(CreateTodoCommand command)
+        private readonly ITodoRepository _repository;
+
+        public TodoHandler(ITodoRepository repository)
         {
-            throw new System.NotImplementedException();
+            _repository = repository;
         }
 
-        public ICommandResult Handler(UpdateTodoCommand command)
+        public ICommandResult Handler(CreateTodoCommand command)
         {
             throw new System.NotImplementedException();
         }
