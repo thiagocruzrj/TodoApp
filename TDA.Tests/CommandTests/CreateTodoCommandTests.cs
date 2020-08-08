@@ -7,7 +7,7 @@ namespace TDA.Tests.CommandTests
     [TestClass]
     public class CreateTodoCommandTests
     {
-        private readonly ICreateTodoCommand _invalidCommand = new CreateTodoCommand("","", DateTime.Now);
+        private readonly CreateTodoCommand _invalidCommand = new CreateTodoCommand("","", DateTime.Now);
         private readonly CreateTodoCommand _validCommand = new CreateTodoCommand("Command Title test", "TestUser", DateTime.Now);
 
         public CreateTodoCommandTests()
