@@ -18,6 +18,9 @@ namespace TDA.Tests.CommandTests
         [TestMethod]
         public void If_a_valid_command()
         {
+            var command = new CreateTodoCommand("Command test", "TestUser", DateTime.Now);
+            command.Validate();
+            Assert.AreEqual(command.Valid, true);
         }
     }
 }
