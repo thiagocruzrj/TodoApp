@@ -25,7 +25,7 @@ namespace TDA.Domain.Handlers.Contracts
 
             _repository.Create(todo);
 
-            return new GenericCommandResult(true, "Task saved", todo.Id);
+            return new GenericCommandResult(true, "Task saved", todo);
         }
     }
 }
