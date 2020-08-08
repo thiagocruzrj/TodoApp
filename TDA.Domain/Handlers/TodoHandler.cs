@@ -16,7 +16,9 @@ namespace TDA.Domain.Handlers.Contracts
 
         public ICommandResult Handler(CreateTodoCommand command)
         {
-            throw new System.NotImplementedException();
+            command.Validate();
+            if (command.Invalid)
+                return new GenericCommandResult(false, "Ops, your task is invalid!", command.Notifications);
         }
     }
 }
