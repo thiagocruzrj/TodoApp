@@ -7,20 +7,25 @@ namespace TDA.Tests.CommandTests
     [TestClass]
     public class CreateTodoCommandTests
     {
+        private readonly ICreateTodoCommand _invalidCommand = new CreateTodoCommand("","", DateTime.Now);
+        private readonly CreateTodoCommand _validCommand = new CreateTodoCommand("Command Title test", "TestUser", DateTime.Now);
+
+        public CreateTodoCommandTests()
+        {
+            _invalidCommand.Validate();
+            _validCommand.Validate();
+        }
+
         [TestMethod]
         public void If_an_invalid_command()
         {
-            var command = new CreateTodoCommand("","", DateTime.Now);
-            command.Validate();
-            Assert.AreEqual(command.Valid, false);
+            Assert.AreEqual(_invalidCommand.Valid, false);
         }
 
         [TestMethod]
         public void If_a_valid_command()
         {
-            var command = new CreateTodoCommand("Command test", "TestUser", DateTime.Now);
-            command.Validate();
-            Assert.AreEqual(command.Valid, true);
+            Assert.AreEqual(_validCommand.Valid, true);
         }
     }
 }
