@@ -1,4 +1,8 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TDA.Domain.Commands;
+using TDA.Domain.Handlers.Contracts;
+using TDA.Domain.Repositories;
 
 namespace TDA.Tests.HandlerTests
 {
