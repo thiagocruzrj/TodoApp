@@ -60,7 +60,17 @@ namespace TDA.Domain.Handlers.Contracts
 
         public ICommandResult Handler(MarkTodoAsDoneCommand command)
         {
-            throw new System.NotImplementedException();
+            command.Validate();
+            if(command.Invalid)
+                return new GenericCommandResult(false, "Ops, your task is invalid!", command.Notifications);
+
+            var todo = _repository.GetById(command.Id, command.User);
+
+            todo.MarkAsUndone();
+
+            _repository.Update(todo);
+
+            return new GenericCommandResult(true, "Task saved", todo); 
         }
     }
 }
