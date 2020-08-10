@@ -10,5 +10,10 @@ namespace TDA.Domain.Queries
         {
             return x => x.User == user;
         }
+
+        public static Expression<Func<TodoItem, bool>> GetAllDone(string user)
+        {
+            return x => x.User == user && x.Done;
+        }
     }
 }
