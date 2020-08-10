@@ -6,7 +6,7 @@ using TDA.Domain.Repositories;
 
 namespace TDA.Domain.Handlers.Contracts
 {
-    public class TodoHandler : Notifiable, IHandler<CreateTodoCommand>, IHandler<UpdateTodoCommand>
+    public class TodoHandler : Notifiable, IHandler<CreateTodoCommand>, IHandler<UpdateTodoCommand>, IHandler<MarkTodoAsDoneCommand>, IHandler<MarkTodoAsUndoneCommand>
     {
         private readonly ITodoRepository _repository;
 
@@ -41,6 +41,16 @@ namespace TDA.Domain.Handlers.Contracts
             _repository.Update(todo);
 
             return new GenericCommandResult(true, "Task saved", todo);
+        }
+
+        public ICommandResult Handler(MarkTodoAsUndoneCommand command)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ICommandResult Handler(MarkTodoAsDoneCommand command)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
