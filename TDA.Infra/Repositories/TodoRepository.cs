@@ -31,7 +31,7 @@ namespace TDA.Infra.Repositories
 
         public TodoItem GetById(Guid Id, string user)
         {
-            throw new NotImplementedException();
+            return _context.Todos.FirstOrDefault(x => x.Id == Id && x.User == user);
         }
 
         public IEnumerable<TodoItem> GetByPeriod(string user, DateTime date, bool done)
