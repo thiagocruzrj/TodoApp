@@ -41,7 +41,7 @@ namespace TDA.Infra.Repositories
 
         public IEnumerable<TodoItem> GetDone(string user)
         {
-            throw new NotImplementedException();
+            return _context.Todos.AsNoTracking().Where(TodoQueries.GetAllDone(user)).OrderBy(x => x.Date);
         }
 
         public IEnumerable<TodoItem> GetUndone(string user)
