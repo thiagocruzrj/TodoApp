@@ -15,7 +15,7 @@ namespace TDA.Api.Controllers
         [HttpGet]
         public IEnumerable<TodoItem> GetAll([FromServices]ITodoRepository repository)
         {
-            return repository.GetAll("UserTest1");
+            return repository.GetAll("TestUser");
         }
 
 
