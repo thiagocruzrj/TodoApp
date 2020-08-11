@@ -25,6 +25,12 @@ namespace TDA.Api.Controllers
             return repository.GetAllDone("TestUser");
         }
 
+        [Route("undone")]
+        [HttpGet]
+        public IEnumerable<TodoItem> GetAllUndone([FromServices]ITodoRepository repository)
+        {
+            return repository.GetAllUndone("TestUser");
+        }
 
         [Route("")]
         [HttpPost]
