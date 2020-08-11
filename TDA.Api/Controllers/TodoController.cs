@@ -40,6 +40,13 @@ namespace TDA.Api.Controllers
             return repository.GetByPeriod("TestUser", DateTime.Now.Date, true);
         }
 
+        [Route("undone/today")]
+        [HttpGet]
+        public IEnumerable<TodoItem> GetUndoneForToday([FromServices]ITodoRepository repository)
+        {
+            return repository.GetByPeriod("TestUser", DateTime.Now.Date, true);
+        }
+
         [Route("")]
         [HttpPost]
         public GenericCommandResult Create([FromBody]CreateTodoCommand command, [FromServices] TodoHandler handler)
