@@ -28,5 +28,12 @@ namespace TDA.Tests.QueryTests
             var result = _items.AsQueryable().Where(TodoQueries.GetAll("UserTest3"));
             Assert.AreEqual(1, result.Count());
         }
+
+        [TestMethod]
+        public void When_execute_query_should_return_only_user_done_tasks()
+        {
+            var result = _items.AsQueryable().Where(TodoQueries.GetAllDone("UserTest3"));
+            Assert.AreEqual(1, result.Count());
+        }
     }
 }
