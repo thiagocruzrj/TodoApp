@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TDA.Domain.Commands;
@@ -30,6 +31,13 @@ namespace TDA.Api.Controllers
         public IEnumerable<TodoItem> GetAllUndone([FromServices]ITodoRepository repository)
         {
             return repository.GetAllUndone("TestUser");
+        }
+
+        [Route("done/today")]
+        [HttpGet]
+        public IEnumerable<TodoItem> GetDoneForToday([FromServices]ITodoRepository repository)
+        {
+            return repository.GetByPeriod("TestUser", DateTime.Now.Date, true);
         }
 
         [Route("")]
