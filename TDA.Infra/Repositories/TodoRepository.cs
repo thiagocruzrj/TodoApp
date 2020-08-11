@@ -2,14 +2,23 @@ using System;
 using System.Collections.Generic;
 using TDA.Domain.Entities;
 using TDA.Domain.Repositories;
+using TDA.Infra.Contexts;
 
 namespace TDA.Infra.Repositories
 {
     public class TodoRepository : ITodoRepository
     {
+        private readonly DataContext _context;
+
+        public TodoRepository(DataContext context)
+        {
+            _context = context;
+        }
+
         public void Create(TodoItem todo)
         {
-            throw new NotImplementedException();
+            _context.Todos.Add(todo);
+            _context.SaveChanges();
         }
 
         public IEnumerable<TodoItem> GetAll(string user)
