@@ -18,6 +18,13 @@ namespace TDA.Api.Controllers
             return repository.GetAll("TestUser");
         }
 
+        [Route("done")]
+        [HttpGet]
+        public IEnumerable<TodoItem> GetAllDone([FromServices]ITodoRepository repository)
+        {
+            return repository.GetAllDone("TestUser");
+        }
+
 
         [Route("")]
         [HttpPost]

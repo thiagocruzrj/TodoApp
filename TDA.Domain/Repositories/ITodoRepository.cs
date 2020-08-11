@@ -10,8 +10,8 @@ namespace TDA.Domain.Repositories
         void Update(TodoItem todo);
         TodoItem GetById(Guid Id, string user);
         IEnumerable<TodoItem> GetAll(string user);
-        IEnumerable<TodoItem> GetDone(string user);
-        IEnumerable<TodoItem> GetUndone(string user);
+        IEnumerable<TodoItem> GetAllDone(string user);
+        IEnumerable<TodoItem> GetAllUndone(string user);
         IEnumerable<TodoItem> GetByPeriod(string user, DateTime date, bool done);
     }
 }

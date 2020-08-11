@@ -16,12 +16,12 @@ namespace TDA.Tests.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TodoItem> GetDone(string user)
+        public IEnumerable<TodoItem> GetAllDone(string user)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TodoItem> GetUndone(string user)
+        public IEnumerable<TodoItem> GetAllUndone(string user)
         {
             throw new NotImplementedException();
         }

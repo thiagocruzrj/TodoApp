@@ -39,12 +39,12 @@ namespace TDA.Infra.Repositories
             return _context.Todos.AsNoTracking().Where(TodoQueries.GetByPeriod(user, date, done)).OrderBy(x => x.Date);
         }
 
-        public IEnumerable<TodoItem> GetDone(string user)
+        public IEnumerable<TodoItem> GetAllDone(string user)
         {
             return _context.Todos.AsNoTracking().Where(TodoQueries.GetAllDone(user)).OrderBy(x => x.Date);
         }
 
-        public IEnumerable<TodoItem> GetUndone(string user)
+        public IEnumerable<TodoItem> GetAllUndone(string user)
         {
             return _context.Todos.AsNoTracking().Where(TodoQueries.GetAllUndone(user)).OrderBy(x => x.Date);
         }
