@@ -40,6 +40,13 @@ namespace TDA.Api.Controllers
             return repository.GetByPeriod("TestUser", DateTime.Now.Date, true);
         }
 
+        [Route("done/tomorrow")]
+        [HttpGet]
+        public IEnumerable<TodoItem> GetDoneForTomorrow([FromServices]ITodoRepository repository)
+        {
+            return repository.GetByPeriod("TestUser", DateTime.Now.Date.AddDays(1), true);
+        }
+
         [Route("undone/today")]
         [HttpGet]
         public IEnumerable<TodoItem> GetUndoneForToday([FromServices]ITodoRepository repository)
