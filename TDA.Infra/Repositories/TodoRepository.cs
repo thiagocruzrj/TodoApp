@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using TDA.Domain.Entities;
 using TDA.Domain.Repositories;
 using TDA.Infra.Contexts;
@@ -48,7 +49,8 @@ namespace TDA.Infra.Repositories
 
         public void Update(TodoItem todo)
         {
-            throw new NotImplementedException();
+            _context.Entry(todo).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
