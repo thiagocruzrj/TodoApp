@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TDA.Domain.Handlers.Contracts;
+using TDA.Domain.Repositories;
 using TDA.Infra.Contexts;
 
 namespace TDA.Api
@@ -21,6 +23,9 @@ namespace TDA.Api
         {
             services.AddControllers();
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+
+            services.AddTransient<ITodoRepository, TodoRepository>();
+            services.AddTransient<TodoHandler, TodoHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
