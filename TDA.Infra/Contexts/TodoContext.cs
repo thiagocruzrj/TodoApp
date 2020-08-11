@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using TDA.Domain.Entities;
 
 namespace TDA.Infra.Contexts
