@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using TDA.Domain.Handlers.Contracts;
 using TDA.Domain.Repositories;
 using TDA.Infra.Contexts;
+using TDA.Infra.Repositories;
 
 namespace TDA.Api
 {
