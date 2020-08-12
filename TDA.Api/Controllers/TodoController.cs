@@ -76,5 +76,13 @@ namespace TDA.Api.Controllers
             command.User = "TestUser";
             return (GenericCommandResult)handler.Handler(command);
         }
+
+        [Route("mark-as-done")]
+        [HttpPut]
+        public GenericCommandResult MarkAsDone([FromBody]MarkTodoAsDoneCommand command, [FromServices] TodoHandler handler)
+        {
+            command.User = "TestUser";
+            return (GenericCommandResult)handler.Handler(command);
+        }
     }
 }
