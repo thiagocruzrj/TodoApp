@@ -43,7 +43,7 @@ namespace TDA.Domain.Handlers.Contracts
             return new GenericCommandResult(true, "Task saved", todo);
         }
 
-        public ICommandResult Handler(MarkTodoAsUndoneCommand command)
+        public ICommandResult Handler(MarkTodoAsDoneCommand command)
         {
             command.Validate();
             if(command.Invalid)
@@ -58,7 +58,7 @@ namespace TDA.Domain.Handlers.Contracts
             return new GenericCommandResult(true, "Task saved", todo); 
         }
 
-        public ICommandResult Handler(MarkTodoAsDoneCommand command)
+        public ICommandResult Handler(MarkTodoAsUndoneCommand command)
         {
             command.Validate();
             if(command.Invalid)
