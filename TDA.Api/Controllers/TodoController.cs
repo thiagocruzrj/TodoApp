@@ -68,5 +68,13 @@ namespace TDA.Api.Controllers
             command.User = "TestUser";
             return (GenericCommandResult)handler.Handler(command);
         }
+
+        [Route("")]
+        [HttpPut]
+        public GenericCommandResult Update([FromBody]UpdateTodoCommand command, [FromServices] TodoHandler handler)
+        {
+            command.User = "TestUser";
+            return (GenericCommandResult)handler.Handler(command);
+        }
     }
 }
