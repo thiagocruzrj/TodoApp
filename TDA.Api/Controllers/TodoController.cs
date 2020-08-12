@@ -84,5 +84,13 @@ namespace TDA.Api.Controllers
             command.User = "TestUser";
             return (GenericCommandResult)handler.Handler(command);
         }
+
+        [Route("mark-as-undone")]
+        [HttpPut]
+        public GenericCommandResult MarkAsUndone([FromBody]MarkTodoAsUndoneCommand command, [FromServices] TodoHandler handler)
+        {
+            command.User = "TestUser";
+            return (GenericCommandResult)handler.Handler(command);
+        }
     }
 }
