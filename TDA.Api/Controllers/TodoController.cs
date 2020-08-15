@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TDA.Domain.Commands;
 using TDA.Domain.Entities;
@@ -10,13 +12,15 @@ namespace TDA.Api.Controllers
 {
     [ApiController]
     [Route("v1/todos")]
+    [Authorize]
     public class TodoController : ControllerBase
     {
         [Route("")]
         [HttpGet]
         public IEnumerable<TodoItem> GetAll([FromServices]ITodoRepository repository)
         {
-            return repository.GetAll("TestUser");
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetAll(user);
         }
 
         [Route("done")]
