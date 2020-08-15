@@ -2,16 +2,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TDA.Domain\TDA.Domain.csproj" />
-    <ProjectReference Include="..\TDA.iNFRA\TDA.Infra.csproj" />
+    <ProjectReference Include="..\TDA.Infra\TDA.Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="microsoft.entityframeworkcore.inmemory" Version="3.1.6" />
-    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
   </ItemGroup>
 
   <PropertyGroup>
