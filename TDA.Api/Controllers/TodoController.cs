@@ -27,49 +27,56 @@ namespace TDA.Api.Controllers
         [HttpGet]
         public IEnumerable<TodoItem> GetAllDone([FromServices]ITodoRepository repository)
         {
-            return repository.GetAllDone("TestUser");
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetAllDone(user);
         }
 
         [Route("undone")]
         [HttpGet]
         public IEnumerable<TodoItem> GetAllUndone([FromServices]ITodoRepository repository)
         {
-            return repository.GetAllUndone("TestUser");
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetAllUndone(user);
         }
 
         [Route("done/today")]
         [HttpGet]
         public IEnumerable<TodoItem> GetDoneForToday([FromServices]ITodoRepository repository)
         {
-            return repository.GetByPeriod("TestUser", DateTime.Now.Date, true);
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetByPeriod(user, DateTime.Now.Date, true);
         }
 
         [Route("done/tomorrow")]
         [HttpGet]
         public IEnumerable<TodoItem> GetDoneForTomorrow([FromServices]ITodoRepository repository)
         {
-            return repository.GetByPeriod("TestUser", DateTime.Now.Date.AddDays(1), true);
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetByPeriod(user, DateTime.Now.Date.AddDays(1), true);
         }
 
         [Route("undone/today")]
         [HttpGet]
         public IEnumerable<TodoItem> GetUndoneForToday([FromServices]ITodoRepository repository)
         {
-            return repository.GetByPeriod("TestUser", DateTime.Now.Date, false);
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetByPeriod(user, DateTime.Now.Date, false);
         }
 
         [Route("undone/tomorrow")]
         [HttpGet]
         public IEnumerable<TodoItem> GetUndoneForTormorrow([FromServices]ITodoRepository repository)
         {
-            return repository.GetByPeriod("TestUser", DateTime.Now.Date.AddDays(1), false);
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            return repository.GetByPeriod(user, DateTime.Now.Date.AddDays(1), false);
         }
 
         [Route("")]
         [HttpPost]
         public GenericCommandResult Create([FromBody]CreateTodoCommand command, [FromServices] TodoHandler handler)
         {
-            command.User = "TestUser";
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            command.User = user;
             return (GenericCommandResult)handler.Handler(command);
         }
 
@@ -77,7 +84,8 @@ namespace TDA.Api.Controllers
         [HttpPut]
         public GenericCommandResult Update([FromBody]UpdateTodoCommand command, [FromServices] TodoHandler handler)
         {
-            command.User = "TestUser";
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            command.User = user;
             return (GenericCommandResult)handler.Handler(command);
         }
 
@@ -85,7 +93,8 @@ namespace TDA.Api.Controllers
         [HttpPut]
         public GenericCommandResult MarkAsDone([FromBody]MarkTodoAsDoneCommand command, [FromServices] TodoHandler handler)
         {
-            command.User = "TestUser";
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            command.User = user;
             return (GenericCommandResult)handler.Handler(command);
         }
 
@@ -93,7 +102,8 @@ namespace TDA.Api.Controllers
         [HttpPut]
         public GenericCommandResult MarkAsUndone([FromBody]MarkTodoAsUndoneCommand command, [FromServices] TodoHandler handler)
         {
-            command.User = "TestUser";
+            var user = User.Claims.FirstOrDefault(x => x.Type == "user_id")?.Value;
+            command.User = user;
             return (GenericCommandResult)handler.Handler(command);
         }
     }
